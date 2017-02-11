@@ -1,0 +1,58 @@
+aws lambda / azure function
+azure service fabric - PaaS
+akka / akka.NET
+
+hexagonal, clean: core opens up ports, implemented by adapters (WebAPI)
+called by clients (database out of core application).
+
+one synchronous approach  (JSON over HTTP)
+one asynchronous approach (AMPQ over RabbitMQ)
+
+Clients should not call microservices, clients should call API/Application
+Gateways for load balacing and proxing. (21:20)
+
+synchronou == temporal coupling (circuit break pattern)	Uptime is the product of the individual componentes (99,99%30 = 99,7% = 2hrs month)
+
+Add a correlation ID to every client request and include it in all internal communication for traceability aind debugginf and tuning
+
+Service discovery (UDDI) loose coupling implies no hard coded URLs.
+E.g; Consul.io & Mincrophone
+
+Make sure nothing is duplicated
+
+**********IMPLEMENTATION PATTERNS********** / 
+DDD  (contexts, aggregates and domain servies. anti corruption layer)
+CQRS (Command Query Resposibility Segregation)
+SQL or NoSQL
+Versioning
+Message Bus
+Optimistic Consurrency
+Event Sourcing (persing event not state. avoid 2 phase commit)
+API Gateway
+
+Event Sourcing: persist events and publish those on the message bus (2 phase may cause data lose)
+
+Rule for sizing
+Have a single purpouse (Single Responsability Purpouse) Use Cases and Bounded Contexts
+
+Architecture (38:00)
+Redis for cache
+
+RabbitMQ + EasyNetQ
+EventStore
+Redis + StackEExchange.Redis
+ASP.NET Web API
+
+https://github.com/rbanks54/microcafe
+
+Commands do not update state of any domain objects. They raise domain events.
+Events are processed by domain objects, who update their own internal state.
+
+Adapter: does not need to be RESTFUL
+could be SOAP API
+WEB Socket
+
+"Command are void, Queries return results"
+
+Deployment (Docker)
+Ignore versioning
