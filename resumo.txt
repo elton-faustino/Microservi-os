@@ -1,5 +1,8 @@
 o aumento na disponibilidade pode implicar em eventual perda na consistência dos dados.
 
+CORE    - exposed by ports implemented by adapter
+ADAPTER - calls made from webAPIs
+
 aws lambda / azure function
 azure service fabric - PaaS
 akka / akka.NET
