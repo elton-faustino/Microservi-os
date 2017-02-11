@@ -1,3 +1,5 @@
+o aumento na disponibilidade pode implicar em eventual perda na consistência dos dados.
+
 aws lambda / azure function
 azure service fabric - PaaS
 akka / akka.NET
